@@ -1,0 +1,17 @@
+cot
+*.zip
+*.xlsx
+*.db
+
+# Esclude la cartella CMakeFiles ovunque si trovi
+CMakeFiles/
+
+# Esclude altri file generati da CMake (opzionale ma consigliato)
+CMakeCache.txt
+CMakeScripts/
+cmake_install.cmake
+Makefile
+
+# Assicura che la cartella src e il suo contenuto siano inclusi
+!src/
+!src/**
