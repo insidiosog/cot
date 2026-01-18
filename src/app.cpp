@@ -9,7 +9,6 @@
 wxIMPLEMENT_APP(MyApp);
 
 bool MyApp::OnInit() {
-    // Apri o crea il database
     if (sqlite3_open("cot.db", &db) != SQLITE_OK) {
         wxMessageBox("Errore nell'apertura del database", "Errore", wxOK | wxICON_ERROR);
         return false;
