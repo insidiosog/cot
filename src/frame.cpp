@@ -1,4 +1,3 @@
-// src/frame.cpp
 #include "frame.h"
 #include "app.h"
 #include <wx/sizer.h>
