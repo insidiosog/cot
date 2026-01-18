@@ -304,7 +304,6 @@ void MyFrame::OnItemActivated(wxListEvent& event)
     contentPanel->SetSizer(contentSizer);
     dlgSizer->Add(contentPanel, 1, wxEXPAND);
     dlg.SetSizer(dlgSizer);
-    //dlg.Fit();
     dlg.CentreOnParent();
 
     dlg.ShowModal();
