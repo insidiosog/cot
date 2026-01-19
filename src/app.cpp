@@ -15,6 +15,7 @@ bool MyApp::OnInit() {
     }
 
     // Crea la tabella se non esiste
+    // Create the table if it does not exist
     const char* createTableSQL = 
         "CREATE TABLE IF NOT EXISTS stagioni ("
         "id INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -42,12 +43,14 @@ bool MyApp::OnInit() {
     }
 
     // Controlla se la tabella è vuota
+    // Check if the table is empty
     sqlite3_stmt* stmt;
     if (sqlite3_prepare_v2(db, "SELECT COUNT(*) FROM stagioni;", -1, &stmt, nullptr) == SQLITE_OK) {
         if (sqlite3_step(stmt) == SQLITE_ROW) {
             int count = sqlite3_column_int(stmt, 0);
             if (count == 0) {
                 // Importa dai fogli Excel
+                // Import from Excel sheets
                 if (!ImportFromExcel(db, "cot.xlsx", {"Serie1","Serie6","Serie7"})) {
                     wxMessageBox("Errore nell'importazione dai file Excel", "Errore", wxOK | wxICON_ERROR);
                     sqlite3_finalize(stmt);
