@@ -15,13 +15,11 @@ MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
     wxPanel* mainContainer = new wxPanel(this);
     wxBoxSizer* mainSizer = new wxBoxSizer(wxVERTICAL);
 
-    // ────────────────────────────────────────────────
     // Pannello con header filtrabile + listctrl sincronizzati
-    // ────────────────────────────────────────────────
     wxPanel* contentPanel = new wxPanel(mainContainer);
     wxBoxSizer* contentSizer = new wxBoxSizer(wxVERTICAL);
 
-    // ── Header scrolled (solo orizzontale) ──────────────────────────────
+    // ── Header scrolled (solo orizzontale) ───────────────────────────
     headerScroll = new wxScrolledWindow(contentPanel, wxID_ANY,
                                         wxDefaultPosition, wxDefaultSize, wxHSCROLL | wxBORDER_SIMPLE);
     headerScroll->SetScrollRate(15, 0);  // solo orizzontale
@@ -38,7 +36,7 @@ MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
     searchFields.clear();
 
     std::vector<wxString> colNames = {"Puntata", "Numero", "Venditore", "Tipo", "Informazioni", "Oggetto", 
-		"Storia", "Valutazione",  "Offerta", "Esito", "Rilancio", "Esito Rilancio", "Compratore", "Scostamento"
+        "Storia", "Valutazione",  "Offerta", "Esito", "Rilancio", "Esito Rilancio", "Compratore", "Scostamento"
     };
 
     //std::vector<int> colWidths = {100, 80, 140, 100, 140, 220, 280, 100, 100, 110, 100, 130, 140, 90};
@@ -61,7 +59,7 @@ MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
     headerScrollSizer->Add(headerPanel, 0, wxEXPAND);
     headerScroll->SetSizer(headerScrollSizer);
 
-    // ── ListCtrl ────────────────────────────────────────────────────────
+    // ── ListCtrl ─────────────────────────────────────────────────────
     listCtrl = new wxListCtrl(contentPanel, wxID_ANY,
                               wxDefaultPosition, wxDefaultSize,
                               wxLC_REPORT | wxLC_SINGLE_SEL | wxLC_HRULES | wxLC_VRULES | wxHSCROLL);
@@ -73,7 +71,7 @@ MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
 
     listCtrl->Bind(wxEVT_LIST_ITEM_ACTIVATED, &MyFrame::OnItemActivated, this);
 
-    // ── Sincronizzazione scroll orizzontale ─────────────────────────────
+    // ── Sincronizzazione scroll orizzontale ──────────────────────────
 	// Sincronizzazione scroll orizzontale header → list
 	headerScroll->Bind(wxEVT_SCROLLWIN_THUMBTRACK, &MyFrame::OnHeaderScroll, this);
 	headerScroll->Bind(wxEVT_SCROLLWIN_PAGEDOWN,   &MyFrame::OnHeaderScroll, this);
