@@ -24,7 +24,8 @@ bool ImportFromExcel(sqlite3* db, const std::string& filename, const std::vector
     wxFileSystem::AddHandler(new wxZipFSHandler);
 
     wxFileSystem fs;
-	wxFileName fn(filename);  // se filename è std::string, wxFileName lo accetta direttamente
+    // se filename è std::string, wxFileName lo accetta direttamente
+	wxFileName fn(filename);  
 	fn.MakeAbsolute();
 	wxString absFilename = fn.GetFullPath();
 	std::cout << "Path assoluto usato: " << absFilename.mb_str() << "\n";
