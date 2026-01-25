@@ -249,8 +249,7 @@ void MyFrame::OnItemActivated(wxListEvent& event)
         "Rilancio", "Esito Rilancio", "Compratore", "Scostamento"
     };
 
-    wxDialog dlg(this, wxID_ANY, "Dettagli puntata",
-                 wxDefaultPosition, wxSize(750, 800),
+    wxDialog dlg(this, wxID_ANY, "Dettagli puntata", wxDefaultPosition, wxSize(750, 800),
                  wxDEFAULT_DIALOG_STYLE | wxRESIZE_BORDER);
 
     wxBoxSizer* dlgSizer = new wxBoxSizer(wxVERTICAL);
