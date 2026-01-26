@@ -269,12 +269,10 @@ void MyFrame::OnItemActivated(wxListEvent& event)
         wxString value = listCtrl->GetItemText(item, col);
         if (value.IsEmpty()) value = wxT("—");
 
-        // Etichetta
         wxStaticText* lbl = new wxStaticText(contentPanel, wxID_ANY, labelStr);
         lbl->SetFont(wxFont(9, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD));
         grid->Add(lbl, 0, wxALIGN_RIGHT | wxALIGN_TOP | wxRIGHT, 4);   // ridotto right da 12 a 8
 
-        // Campo testo read-only
         wxTextCtrl* valCtrl;
         if(col==5 || col==6 || col==7) {
         valCtrl = new wxTextCtrl(contentPanel, wxID_ANY, value,
